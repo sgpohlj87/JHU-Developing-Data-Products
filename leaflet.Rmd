@@ -1,0 +1,32 @@
+---
+title: "leaflet assignment"
+output: html_document
+---
+
+##Introduction
+####Create a web page using R Markdown that features a map created with Leaflet.
+####Host your webpage on either GitHub Pages, RPubs, or NeoCities.
+####Your webpage must contain the date that you created the document, and it must contain a map created with Leaflet. We would love to see you show off your creativity!
+
+###Calling leaflet library
+```{r echo=FALSE}
+library(leaflet)
+````
+####Singapore Places of Interest - Marina Bay Sands, Merlion Statue, Singapore Zoo, Statue of Sir Stamford Raffles, Siloso Beach, Jurong Bird Park, River Safari, Esplanade Theatres, Gardens by the Bay
+
+```{r echo=TRUE}
+singapore <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lat=1.283488,lng=103.860898, popup="Marina Bay Sands") %>%
+  addMarkers(lat=1.286902,lng=103.854513, popup="Merlion Statue") %>%
+  addMarkers(lat=1.404370,lng=103.793034, popup="Singapore Zoo") %>%
+  addMarkers(lat=1.287765,lng=103.850755, popup="Statue of Sir Stamford RaffleS") %>%
+  addMarkers(lat=1.255367,lng=103.812593, popup="Siloso Beach") %>% 
+  addMarkers(lat=1.318685,lng=103.706463, popup="Jurong Bird Park") %>%
+  addMarkers(lat=1.402896,lng=103.791521, popup="River Safari") %>%
+  addMarkers(lat=1.289744,lng=103.855520, popup="Esplanade Theatres") %>%
+  addMarkers(lat=1.281547,lng=103.863570, popup="Gardens by the Bay")
+ 
+singapore
+
+````
