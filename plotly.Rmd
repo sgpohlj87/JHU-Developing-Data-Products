@@ -1,0 +1,46 @@
+---
+title: "plotlly"
+output: html_document
+---
+###Introduction
+This plotly analysis evaluates the profits and sales of items under the Superstore dataset from Tableau.
+
+####Calling required library
+```{r echo=FALSE}
+library(plotly)
+library(openxlsx)
+```
+
+#### Load Superstore data
+```{r echo=TRUE}
+superstore <- read.xlsx('C:/Users/sgpoh/Downloads/Full-Sales-Superstore-Dataset.xlsx')
+head(superstore)
+state_region <- read.xlsx('C:/Users/sgpoh/Downloads/US_States_Region.xlsx')
+head(state_region)
+```
+
+```{r echo=TRUE}
+mean_sales <- aggregate(Sales ~ State, superstore, mean)
+mean_profit <- aggregate(Profit ~ State, superstore, mean)
+mean_superstore <- merge(mean_sales, mean_profit, by="State")
+supersuperstore_agg <- merge(state_region, mean_superstore, by="State")
+names(mean_superstore)[names(mean_superstore) == 'Sales'] <- 'Average Sales in USD'
+names(mean_superstore)[names(mean_superstore) == 'Profit'] <- 'Average Profit in USD'
+```
+
+```{r echo=TRUE}
+x <- list(title = "Average Sales in USD")
+y <- list(title = "Average Profit in USD")
+plot_ly(data = supersuperstore_agg , x = ~Sales, y = ~Profit, color = ~Region) %>% layout(xaxis = x, yaxis = y)
+```
+
+
+
+
+
+
+
+
+```
+
+
