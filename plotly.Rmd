@@ -1,6 +1,8 @@
 ---
-title: "plotlly"
-output: html_document
+title: "Developing Data Products - plotly (21Oct2018)"
+output:
+  word_document: default
+  html_document: default
 ---
 ###Introduction
 This plotly analysis evaluates the profits and sales of items under the Superstore dataset from Tableau.
