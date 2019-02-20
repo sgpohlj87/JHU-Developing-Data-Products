@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Let's calculate your Body Mass Index (BMI)</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Let's calculate your Body Mass Index (BMI)">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Let's calculate your Body Mass Index (BMI)</h1>
+    <h2>Developing Data Products - John Hopkins University</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What is Body Mass Index (BMI)?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Body mass index (BMI) is a simple index of weight-for-height that is commomly used to classify underweight, overwight and obesity in adults. According to  World Health Organization (WHO), the classification of the BMI of an adult is as follows:</p>
+
+<ol>
+<li>BMI of less than 18.5 = Underweight</li>
+<li>BMI of between 18.5 and less than 25.0 = Normal Weight</li>
+<li>BMI of between 25.0 and less than 30.0 = Overweigh</li>
+<li>BMI of 30.0 or more =  Obese</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>How is BMI calculated?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The BMI is derived from that ratio of weight of the body in kilograms to the square of its height in meters. The formula is the following:</p>
+
+<p>BMI = weight(kg) / height(metres)*height(metres)</p>
+
+<p>An example is as follows:</p>
+
+<pre><code class="r">weight=70
+height=1.7
+BMI=weight/(height*height)
+BMI
+</code></pre>
+
+<pre><code>## [1] 24.22145
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>BMI Classification</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We use the following function to determine the BMI classification:</p>
+
+<pre><code class="r">classification&lt;-function(weight,height){
+  BMI_value&lt;-weight/(height^2)
+  ifelse(BMI_value&lt;18.5,&quot;Underweight&quot;,ifelse(BMI_value&lt;25,&quot;NormalWeight&quot;,ifelse(BMI_value&lt;30,&quot;Overweight&quot;,&quot;Obesity&quot;)))
+}
+</code></pre>
+
+<p>Using our example whereby weight=70kg and height=1.7m, the classification of this adult would be:</p>
+
+<pre><code class="r">classification(70,1.7)
+</code></pre>
+
+<pre><code>## [1] &quot;NormalWeight&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The BMI is a relatively simple and easy method for establishing the weight status of a person and in particular, it correlates reasonably well with their level of body fat.</p>
+
+<p>However, the BMI is only considered an proxy to a person&#39;s body fat. There are other factors such as fitness level, health status, ethnicity, age and gender that could affect one&#39;s BMI with body fat, and hence should be taken into consideration as well.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    <p>Thank You</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What is Body Mass Index (BMI)?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How is BMI calculated?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='BMI Classification'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Conclusion'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
